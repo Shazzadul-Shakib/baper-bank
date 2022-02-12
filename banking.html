@@ -7,6 +7,8 @@
   <title>Banking system</title>
    <!-- !tailwind css link -->
    <script src="https://cdn.tailwindcss.com"></script>
+   <!-- fontawesome icon link -->
+   <script src="https://kit.fontawesome.com/dfddd38fa7.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <h1 class="text-center text-5xl mt-14 mb-4">Welcome to <span class="text-red-500">Baper Bank!!!</span></h1>
@@ -30,15 +32,24 @@
   <!-- ! deposite and withdraw section -->
   <section class="mt-8 grid grid-cols-2 gap-4 w-3/4 mx-auto mb-8">
     <!--! deposite secction -->
-    <div class="bg-lime-300 p-8 rounded">
+    <div class="bg-lime-300 p-8 rounded relative">
       <input id="deposite-input" class="block mt-2 w-3/4 rounded p-2" type="text" placeholder="$ your ammount">
       <button id="deposite-button" class="bg-rose-500 mt-2 rounded px-5 py-2 text-white font-semibold	">Deposite</button>
+      <div id="wrong-input-d" class="p-1 bg-red-600 text-white rounded mt-2 w-3/4 hidden absolute">
+        <small class="pl-3">Wrong input. please input valid amount.</small>
+      </div>
     </div>
 
     <!-- ! withdraw section -->
-    <div class="bg-teal-300 p-8 rounded">
+    <div class="bg-teal-300 p-8 rounded relative">
       <input id="withdraw-input" class="block mt-2 w-3/4 rounded p-2" type="text" placeholder="$ your ammount">
-      <button id="withdraw-button" class="bg-rose-500 mt-2 rounded px-5 py-2 text-white font-semibold	">Withdraw</button>
+      <button id="withdraw-button" class="bg-rose-500 mt-2 rounded px-5 py-2 text-white font-semibold">Withdraw</button>
+      <div id="wrong-input-w" class="p-1 bg-red-600 text-white rounded mt-2 w-3/4 hidden absolute">
+        <small class="pl-3">Wrong input. please input valid amount.</small>
+      </div>
+      <div id="wrong-input-i" class="p-1 bg-red-600 text-white rounded mt-2 w-3/4 hidden absolute ">
+        <small class="pl-3">Insufficient balance!</small>
+      </div>
     </div>
   </section>
   <!-- ! return to login page -->
@@ -50,6 +61,7 @@
 
 
   <!-- ! javascript link -->
+
   <script src="js/banking.js"></script>
 </body>
 </html>

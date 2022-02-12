@@ -13,10 +13,21 @@ function inputFields(deposit) {
   }
     
 };
+//! wrong input function 
+function errorMessage(wbd,win) {
+  const wrongMsg = document.getElementById(wbd);
+  const fieldinput = document.getElementById(win);
+  wrongMsg.style.display = "block";
+  fieldinput.addEventListener('click', function () {
+    document.getElementById(wbd).style.display = "none";
+  })
+  wrongMsg.addEventListener('click', function () {
+    document.getElementById(wbd).style.display = "none";
+  })
+};
 
 function getCurrentBalance() {
   const currentTotal = document.getElementById('previous-total').innerText;
-  console.log(parseFloat(currentTotal));
   return parseFloat(currentTotal);
   
 }
@@ -30,7 +41,13 @@ function summery(prevData, newInputedData) {
    previousDeposite.innerText = finalDeposite;
   }
   else {
-    alert("WRONG INPUT!");
+    if (prevData == 'previous-deposited') {
+      errorMessage('wrong-input-d',"deposite-input"); 
+    }
+    else {
+      errorMessage('wrong-input-w',"withdraw-input");
+    }
+    
   }
 };
 // ! final total Function
@@ -42,7 +59,7 @@ function total(prevTotal,newInputedData,isAdd) {
   }
   else {
     if (newInputedData > parseFloat(previousTotal.innerText)) {
-      alert("Insufficient Balance");
+      errorMessage('wrong-input-i',"withdraw-input");
     }
     else {
       const finalTotal = parseFloat(previousTotal.innerText) - parseFloat(newInputedData);
@@ -67,7 +84,7 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
 // ! Withdraw input
   const newWithdraw = inputFields('withdraw-input');
 // ! Withdraw ammount section
-  if (getCurrentBalance() > newWithdraw) {
+  if (getCurrentBalance() >= newWithdraw) {
      const finalWithdraw = summery('previous-Withdrew', newWithdraw);
   }
 // !final total
