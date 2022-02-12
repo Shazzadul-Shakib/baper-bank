@@ -26,6 +26,25 @@ function errorMessage(wbd,win) {
   })
 };
 
+
+// !success message function
+function success(wbd, fd, sm,df) {
+  const succesMsg = document.getElementById(wbd);
+  const inputedAmount = fd;
+  const successInputmsg = document.getElementById(sm);
+  successInputmsg.innerText = inputedAmount;
+  succesMsg.style.display = "block";
+  succesMsg.addEventListener("click", function () {
+    document.getElementById(wbd).style.display = "none";
+  })
+  document.getElementById(df).addEventListener('click', function () {
+    document.getElementById(wbd).style.display = "none";
+  })
+};
+
+
+
+
 function getCurrentBalance() {
   const currentTotal = document.getElementById('previous-total').innerText;
   return parseFloat(currentTotal);
@@ -38,7 +57,14 @@ function summery(prevData, newInputedData) {
  
   if (newInputedData > 0) {
     const finalDeposite=  parseFloat(previousDeposite.innerText)+parseFloat(newInputedData);
-   previousDeposite.innerText = finalDeposite;
+    previousDeposite.innerText = finalDeposite;
+    //Succes message
+    if (prevData == 'previous-deposited') {
+      success('right-input-d',finalDeposite ,'right-amount-d',"deposite-input"); 
+    }
+    else {
+      success('right-input-w',finalDeposite ,'right-amount-w',"withdraw-input");
+    }
   }
   else {
     if (prevData == 'previous-deposited') {

@@ -5,10 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banking system</title>
+    <!--! fontawesome icon link -->
+    <script src="https://kit.fontawesome.com/8d2ad5042d.js" crossorigin="anonymous"></script>
    <!-- !tailwind css link -->
    <script src="https://cdn.tailwindcss.com"></script>
-   <!-- fontawesome icon link -->
-   <script src="https://kit.fontawesome.com/dfddd38fa7.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <h1 class="text-center text-5xl mt-14 mb-4">Welcome to <span class="text-red-500">Baper Bank!!!</span></h1>
@@ -16,15 +16,18 @@
   <!--! Ammount Section -->
   <section class=" w-3/4 mx-auto grid grid-cols-3	gap-4 mt-8 text-white">
     <div class="bg-green-400 p-8 rounded">
-      <h3 class=" text-3xl">Deposite</h3>
+      <i class="fa-solid fa-money-check-dollar text-3xl inline-block"></i>
+      <h3 class=" text-3xl inline-block">Deposit</h3>
       <h4 class=" text-4xl">$ <span id="previous-deposited">00</span></h4>
     </div>
     <div class="bg-blue-400 p-8 rounded">
-      <h3 class=" text-3xl">Withdraw</h3>
+      <i class="fa-solid fa-money-check-dollar text-3xl inline-block"></i>
+      <h3 class=" text-3xl inline-block">Withdraw</h3>
       <h4 class=" text-4xl">$ <span id="previous-Withdrew">00</span></h4>
     </div>
     <div class="bg-orange-400 p-8 rounded">
-      <h3 class=" text-3xl">Total</h3>
+      <i class="fa-solid fa-money-check-dollar text-3xl inline-block"></i>
+      <h3 class=" text-3xl inline-block">Total</h3>
       <h4 class=" text-4xl">$ <span id="previous-total">100</span></h4>
     </div> 
   </section>
@@ -34,20 +37,36 @@
     <!--! deposite secction -->
     <div class="bg-lime-300 p-8 rounded relative">
       <input id="deposite-input" class="block mt-2 w-3/4 rounded p-2" type="text" placeholder="$ your ammount">
-      <button id="deposite-button" class="bg-rose-500 mt-2 rounded px-5 py-2 text-white font-semibold	">Deposite</button>
-      <div id="wrong-input-d" class="p-1 bg-red-600 text-white rounded mt-2 w-3/4 hidden absolute">
+      <button id="deposite-button" class="bg-rose-500 mt-2 rounded px-5 py-2 text-white font-semibold	">Deposit</button>
+      <div id="wrong-input-d" class="p-1 bg-red-600 text-white rounded-r-lg rounded-bl-lg mt-2 w-3/4 hidden absolute">
+        <i class="fa-regular fa-circle-xmark pl-2"></i>
         <small class="pl-3">Wrong input. please input valid amount.</small>
       </div>
+
+      <!-- !succes input d -->
+      <div id="right-input-d" class="p-1 bg-green-600 text-white rounded-r-lg rounded-bl-lg mt-2 w-3/4   absolute hidden">
+        <i class="fa-solid fa-circle-check pl-2"></i>
+        <small class="pl-3">Succesfully diposited $<span id="right-amount-d">'00'</span> .</small>
+      </div>
+
+
     </div>
 
     <!-- ! withdraw section -->
     <div class="bg-teal-300 p-8 rounded relative">
       <input id="withdraw-input" class="block mt-2 w-3/4 rounded p-2" type="text" placeholder="$ your ammount">
       <button id="withdraw-button" class="bg-rose-500 mt-2 rounded px-5 py-2 text-white font-semibold">Withdraw</button>
-      <div id="wrong-input-w" class="p-1 bg-red-600 text-white rounded mt-2 w-3/4 hidden absolute">
+      <div id="wrong-input-w" class="p-1 bg-red-600 text-white rounded-r-lg rounded-bl-lg mt-2 w-3/4 hidden absolute">
+        <i class="fa-regular fa-circle-xmark pl-2"></i>
         <small class="pl-3">Wrong input. please input valid amount.</small>
       </div>
-      <div id="wrong-input-i" class="p-1 bg-red-600 text-white rounded mt-2 w-3/4 hidden absolute ">
+      <!-- !succes input w-->
+      <div id="right-input-w" class="p-1 bg-green-600 text-white mt-2 w-3/4 rounded-r-lg rounded-bl-lg absolute hidden">
+        <i class="fa-solid fa-circle-check pl-2"></i>
+        <small class="pl-3">Succesfully withdrawn $<span id="right-amount-w">'00'</span> .</small>
+      </div>
+      <div id="wrong-input-i" class="p-1 bg-red-600 text-white rounded-r-lg rounded-bl-lg mt-2 w-3/4 hidden absolute ">
+        <i class="fa-solid fa-circle-exclamation pl-2"></i>
         <small class="pl-3">Insufficient balance!</small>
       </div>
     </div>
